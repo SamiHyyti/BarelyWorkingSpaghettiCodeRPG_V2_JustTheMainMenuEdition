@@ -4,17 +4,25 @@
 #include "menu.h"
 #include "structs.h"
 
-struct modifier c_stats[5]{
+
+
+void createPlayer()
+{
+	struct modifier r_stats[4]{
+	{0,0,0,0,0,0,0,"Human" },//Hu
+	{-2,+1,+2,+5,-25,+50,0,"Elf" },//El
+	{-3,+4,-1,+15,-50,-50,+50,"Halfling" },//Ha
+	{+2,-2,-2,-5,+50,-80,+75,"Dwarf" }//Dwa
+	};
+
+	struct modifier c_stats[5]{
 	{+2,+1,-3,0,+10,-20,+10,"Warrior"},//war
 	{-2,0,+2,0,-10,+20,-10,"Mage"},//mag
 	{+1,+2,-3,+5,0,0,+10,"Ranger"},//rang
 	{-2,+4,-2,+10,-20,0,+20,"Rogue"},//rog
 	{0,0,0,0,0,0,0,"Adventurer"}//adv
-};
+	};
 
-
-void createPlayer()
-{
 	Player plr;
 	int x = -1;
 	int y = 0;
@@ -22,44 +30,44 @@ void createPlayer()
 	plr.setName();
 	system("cls");
 	std::cout << "	SELECT YOUR RACE\n\n" <<
-		"-->	Human\n	str: 5	dex: 5	int: 5	speed: 100\n	Health: 100	Mana: 100	Stamina: 100\n\n" <<
-		"	Elf\n	str: 3	dex: 6	int: 7	speed: 105\n	Health: 75	Mana: 150	Stamina: 100\n\n" <<
-		"	Halfling\n	str: 2	dex: 9	int: 4	speed: 115\n	Health: 50	Mana: 50	Stamina: 150\n\n" <<
-		"	Dwarf\n	str: 7	dex: 3	int: 3	speed: 95\n	Health: 150	Mana: 20	Stamina: 175\n";
+		"-->	Human\n	str: " << plr.readStr() + r_stats[Human].str << "	dex: " << plr.readDex() + r_stats[Human].dex << "	int: " << plr.readInt() + r_stats[Human].int_ << "	speed: " << plr.readSpd() + r_stats[Human].speed << "\n	Health: " << plr.readHp() + r_stats[Human].hp << "	Mana: " << plr.readMp() + r_stats[Human].mp << "		Stamina: " << plr.readSp() + r_stats[Human].sp << "\n\n" <<
+		"	Elf\n	str: " << plr.readStr() + r_stats[Elf].str << "	dex: " << plr.readDex() + r_stats[Elf].dex << "	int: " << plr.readInt() + r_stats[Elf].int_ << "	speed: " << plr.readSpd() + r_stats[Elf].speed << "\n	Health: " << plr.readHp() + r_stats[Elf].hp << "	Mana: " << plr.readMp() + r_stats[Elf].mp << "		Stamina: " << plr.readSp() + r_stats[Elf].sp << "\n\n" <<
+		"	Halfling\n	str: " << plr.readStr() + r_stats[Halfling].str << "	dex: " << plr.readDex() + r_stats[Halfling].dex << "	int: " << plr.readInt() + r_stats[Halfling].int_ << "	speed: " << plr.readSpd() + r_stats[Halfling].speed << "\n	Health: " << plr.readHp() + r_stats[Halfling].hp << "	Mana: " << plr.readMp() + r_stats[Halfling].mp << "		Stamina: " << plr.readSp() + r_stats[Halfling].sp << "\n\n" <<
+		"	Dwarf\n	str: " << plr.readStr() + r_stats[Dwarf].str << "	dex: " << plr.readDex() + r_stats[Dwarf].dex << "	int: " << plr.readInt() + r_stats[Dwarf].int_ << "	speed: " << plr.readSpd() + r_stats[Dwarf].speed << "\n	Health: " << plr.readHp() + r_stats[Dwarf].hp << "	Mana: " << plr.readMp() + r_stats[Dwarf].mp << "		Stamina: " << plr.readSp() + r_stats[Dwarf].sp << std::endl;
 	while (x == -1) {
 		y = Selection(3,y,x);
 		Sleep(100);
 		if (y == Human) {
 			system("cls");
 			std::cout << "	SELECT YOUR RACE\n\n" <<
-				"-->	Human\n	str: 5	dex: 5	int: 5	speed: 100\n	Health: 100	Mana: 100	Stamina: 100\n\n" <<
-				"	Elf\n	str: 3	dex: 6	int: 7	speed: 105\n	Health: 75	Mana: 150	Stamina: 100\n\n" <<
-				"	Halfling\n	str: 2	dex: 9	int: 4	speed: 115\n	Health: 50	Mana: 50	Stamina: 150\n\n" <<
-				"	Dwarf\n	str: 7	dex: 3	int: 3	speed: 95\n	Health: 150	Mana: 20	Stamina: 175\n";
+				"-->	Human\n	str: " << plr.readStr() + r_stats[Human].str << "	dex: " << plr.readDex() + r_stats[Human].dex << "	int: " << plr.readInt() + r_stats[Human].int_ << "	speed: " << plr.readSpd() + r_stats[Human].speed << "\n	Health: " << plr.readHp() + r_stats[Human].hp << "	Mana: " << plr.readMp() + r_stats[Human].mp << "		Stamina: " << plr.readSp() + r_stats[Human].sp << "\n\n" <<
+				"	Elf\n	str: " << plr.readStr() + r_stats[Elf].str << "	dex: " << plr.readDex() + r_stats[Elf].dex << "	int: " << plr.readInt() + r_stats[Elf].int_ << "	speed: " << plr.readSpd() + r_stats[Elf].speed << "\n	Health: " << plr.readHp() + r_stats[Elf].hp << "	Mana: " << plr.readMp() + r_stats[Elf].mp << "		Stamina: " << plr.readSp() + r_stats[Elf].sp << "\n\n" <<
+				"	Halfling\n	str: " << plr.readStr() + r_stats[Halfling].str << "	dex: " << plr.readDex() + r_stats[Halfling].dex << "	int: " << plr.readInt() + r_stats[Halfling].int_ << "	speed: " << plr.readSpd() + r_stats[Halfling].speed << "\n	Health: " << plr.readHp() + r_stats[Halfling].hp << "	Mana: " << plr.readMp() + r_stats[Halfling].mp << "		Stamina: " << plr.readSp() + r_stats[Halfling].sp << "\n\n" <<
+				"	Dwarf\n	str: " << plr.readStr() + r_stats[Dwarf].str << "	dex: " << plr.readDex() + r_stats[Dwarf].dex << "	int: " << plr.readInt() + r_stats[Dwarf].int_ << "	speed: " << plr.readSpd() + r_stats[Dwarf].speed << "\n	Health: " << plr.readHp() + r_stats[Dwarf].hp << "	Mana: " << plr.readMp() + r_stats[Dwarf].mp << "		Stamina: " << plr.readSp() + r_stats[Dwarf].sp << std::endl;
 		}
 		else if (y == Elf) {
 			system("cls");
 			std::cout << "	SELECT YOUR RACE\n\n" <<
-				"	Human\n	str: 5	dex: 5	int: 5	speed: 100\n	Health: 100	Mana: 100	Stamina: 100\n\n" <<
-				"-->	Elf\n	str: 3	dex: 6	int: 7	speed: 105\n	Health: 75	Mana: 150	Stamina: 100\n\n" <<
-				"	Halfling\n	str: 2	dex: 9	int: 4	speed: 115\n	Health: 50	Mana: 50	Stamina: 150\n\n" <<
-				"	Dwarf\n	str: 7	dex: 3	int: 3	speed: 95\n	Health: 150	Mana: 20	Stamina: 175\n";
+				"	Human\n	str: " << plr.readStr() + r_stats[Human].str << "	dex: " << plr.readDex() + r_stats[Human].dex << "	int: " << plr.readInt() + r_stats[Human].int_ << "	speed: " << plr.readSpd() + r_stats[Human].speed << "\n	Health: " << plr.readHp() + r_stats[Human].hp << "	Mana: " << plr.readMp() + r_stats[Human].mp << "		Stamina: " << plr.readSp() + r_stats[Human].sp << "\n\n" <<
+				"-->	Elf\n	str: " << plr.readStr() + r_stats[Elf].str << "	dex: " << plr.readDex() + r_stats[Elf].dex << "	int: " << plr.readInt() + r_stats[Elf].int_ << "	speed: " << plr.readSpd() + r_stats[Elf].speed << "\n	Health: " << plr.readHp() + r_stats[Elf].hp << "	Mana: " << plr.readMp() + r_stats[Elf].mp << "		Stamina: " << plr.readSp() + r_stats[Elf].sp << "\n\n" <<
+				"	Halfling\n	str: " << plr.readStr() + r_stats[Halfling].str << "	dex: " << plr.readDex() + r_stats[Halfling].dex << "	int: " << plr.readInt() + r_stats[Halfling].int_ << "	speed: " << plr.readSpd() + r_stats[Halfling].speed << "\n	Health: " << plr.readHp() + r_stats[Halfling].hp << "	Mana: " << plr.readMp() + r_stats[Halfling].mp << "		Stamina: " << plr.readSp() + r_stats[Halfling].sp << "\n\n" <<
+				"	Dwarf\n	str: " << plr.readStr() + r_stats[Dwarf].str << "	dex: " << plr.readDex() + r_stats[Dwarf].dex << "	int: " << plr.readInt() + r_stats[Dwarf].int_ << "	speed: " << plr.readSpd() + r_stats[Dwarf].speed << "\n	Health: " << plr.readHp() + r_stats[Dwarf].hp << "	Mana: " << plr.readMp() + r_stats[Dwarf].mp << "		Stamina: " << plr.readSp() + r_stats[Dwarf].sp << std::endl;
 		}
 		else if (y == Halfling) {
 			system("cls");
 			std::cout << "	SELECT YOUR RACE\n\n" <<
-				"	Human\n	str: 5	dex: 5	int: 5	speed: 100\n	Health: 100	Mana: 100	Stamina: 100\n\n" <<
-				"	Elf\n	str: 3	dex: 6	int: 7	speed: 105\n	Health: 75	Mana: 150	Stamina: 100\n\n" <<
-				"-->	Halfling\n	str: 2	dex: 9	int: 4	speed: 115\n	Health: 50	Mana: 50	Stamina: 150\n\n" <<
-				"	Dwarf\n	str: 7	dex: 3	int: 3	speed: 95\n	Health: 150	Mana: 20	Stamina: 175\n";
+				"	Human\n	str: " << plr.readStr() + r_stats[Human].str << "	dex: " << plr.readDex() + r_stats[Human].dex << "	int: " << plr.readInt() + r_stats[Human].int_ << "	speed: " << plr.readSpd() + r_stats[Human].speed << "\n	Health: " << plr.readHp() + r_stats[Human].hp << "	Mana: " << plr.readMp() + r_stats[Human].mp << "		Stamina: " << plr.readSp() + r_stats[Human].sp << "\n\n" <<
+				"	Elf\n	str: " << plr.readStr() + r_stats[Elf].str << "	dex: " << plr.readDex() + r_stats[Elf].dex << "	int: " << plr.readInt() + r_stats[Elf].int_ << "	speed: " << plr.readSpd() + r_stats[Elf].speed << "\n	Health: " << plr.readHp() + r_stats[Elf].hp << "	Mana: " << plr.readMp() + r_stats[Elf].mp << "		Stamina: " << plr.readSp() + r_stats[Elf].sp << "\n\n" <<
+				"-->	Halfling\n	str: " << plr.readStr() + r_stats[Halfling].str << "	dex: " << plr.readDex() + r_stats[Halfling].dex << "	int: " << plr.readInt() + r_stats[Halfling].int_ << "	speed: " << plr.readSpd() + r_stats[Halfling].speed << "\n	Health: " << plr.readHp() + r_stats[Halfling].hp << "	Mana: " << plr.readMp() + r_stats[Halfling].mp << "		Stamina: " << plr.readSp() + r_stats[Halfling].sp << "\n\n" <<
+				"	Dwarf\n	str: " << plr.readStr() + r_stats[Dwarf].str << "	dex: " << plr.readDex() + r_stats[Dwarf].dex << "	int: " << plr.readInt() + r_stats[Dwarf].int_ << "	speed: " << plr.readSpd() + r_stats[Dwarf].speed << "\n	Health: " << plr.readHp() + r_stats[Dwarf].hp << "	Mana: " << plr.readMp() + r_stats[Dwarf].mp << "		Stamina: " << plr.readSp() + r_stats[Dwarf].sp << std::endl;
 			}
 		else if (y == Dwarf) {
 			system("cls");
 			std::cout << "	SELECT YOUR RACE\n\n" <<
-				"	Human\n	str: 5	dex: 5	int: 5	speed: 100\n	Health: 100	Mana: 100	Stamina: 100\n\n" <<
-				"	Elf\n	str: 3	dex: 6	int: 7	speed: 105\n	Health: 75	Mana: 150	Stamina: 100\n\n" <<
-				"	Halfling\n	str: 2	dex: 9	int: 4	speed: 115\n	Health: 50	Mana: 50	Stamina: 150\n\n" <<
-				"-->	Dwarf\n	str: 7	dex: 3	int: 3	speed: 95\n	Health: 150	Mana: 20	Stamina: 175\n";
+				"	Human\n	str: " << plr.readStr() + r_stats[Human].str << "	dex: " << plr.readDex() + r_stats[Human].dex << "	int: " << plr.readInt() + r_stats[Human].int_ << "	speed: " << plr.readSpd() + r_stats[Human].speed << "\n	Health: " << plr.readHp() + r_stats[Human].hp << "	Mana: " << plr.readMp() + r_stats[Human].mp << "		Stamina: " << plr.readSp() + r_stats[Human].sp << "\n\n" <<
+				"	Elf\n	str: " << plr.readStr() + r_stats[Elf].str << "	dex: " << plr.readDex() + r_stats[Elf].dex << "	int: " << plr.readInt() + r_stats[Elf].int_ << "	speed: " << plr.readSpd() + r_stats[Elf].speed << "\n	Health: " << plr.readHp() + r_stats[Elf].hp << "	Mana: " << plr.readMp() + r_stats[Elf].mp << "		Stamina: " << plr.readSp() + r_stats[Elf].sp << "\n\n" <<
+				"	Halfling\n	str: " << plr.readStr() + r_stats[Halfling].str << "	dex: " << plr.readDex() + r_stats[Halfling].dex << "	int: " << plr.readInt() + r_stats[Halfling].int_ << "	speed: " << plr.readSpd() + r_stats[Halfling].speed << "\n	Health: " << plr.readHp() + r_stats[Halfling].hp << "	Mana: " << plr.readMp() + r_stats[Halfling].mp << "		Stamina: " << plr.readSp() + r_stats[Halfling].sp << "\n\n" <<
+				"-->	Dwarf\n	str: " << plr.readStr() + r_stats[Dwarf].str << "	dex: " << plr.readDex() + r_stats[Dwarf].dex << "	int: " << plr.readInt() + r_stats[Dwarf].int_ << "	speed: " << plr.readSpd() + r_stats[Dwarf].speed << "\n	Health: " << plr.readHp() + r_stats[Dwarf].hp << "	Mana: " << plr.readMp() + r_stats[Dwarf].mp << "		Stamina: " << plr.readSp() + r_stats[Dwarf].sp << std::endl;
 			}
 		}
 	plr.setRace((Race)x);

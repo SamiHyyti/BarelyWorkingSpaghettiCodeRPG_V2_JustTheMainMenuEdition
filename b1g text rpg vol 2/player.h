@@ -29,11 +29,11 @@ protected:
 	int dex_ = 5;
 	int int_ = 5;
 	int speed = 100;
-	float hp;
+	float hp = 100;
 	int hpmax = 100;
-	float mp;
+	float mp = 100;
 	int mpmax = 100;
-	float sp;
+	float sp = 100;
 	int spmax = 100;
 	int armor = 0;
 	
