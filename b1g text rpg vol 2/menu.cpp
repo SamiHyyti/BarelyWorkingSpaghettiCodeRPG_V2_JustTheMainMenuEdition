@@ -2,22 +2,21 @@
 #include "player.h"
 
 int Selection(int menuSize, int &selectionArrow, int &selection) { // menu size, menu selector, switch selection
-
 	int i = 0;
 	while (i != 1) {
-		if (GetAsyncKeyState(VK_UP) & 0x8000) {
+		if ((GetAsyncKeyState(VK_UP) & 0x8000) != 0) {
 			--selectionArrow;
 			i = 1;
 			if (selectionArrow < 0)
 				selectionArrow = menuSize;
 		}
-		if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
+		if ((GetAsyncKeyState(VK_DOWN) & 0x8000) != 0)  {
 			++selectionArrow;
 			i = 1;
 			if (selectionArrow > menuSize)
 				selectionArrow = 0;
 		}
-		if (GetAsyncKeyState(VK_ENTER) & 0x8000) {
+		if ((GetAsyncKeyState(VK_ENTER) & 0x8000) != 0)  {
 			i = 1;
 			std::cin.clear();
 			std::cin.ignore(10, '\n');
